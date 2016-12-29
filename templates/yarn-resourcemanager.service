@@ -1,0 +1,16 @@
+[Unit]
+Description=YARN Resourcemanager Service
+Documentation=https://github.com/gitinsky/ansible-role-yarn-resourcemanager
+
+[Service]
+Type=simple
+User={{ hadoop_user }}
+Group={{ hadoop_user }}
+ExecStart={{ hadoop_distr_prefix }}/bin/yarn resourcemanager
+StandardOutput=journal
+StandardError=journal
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+Alias=yarn-resourcemanager-{{ env_name }}.service
