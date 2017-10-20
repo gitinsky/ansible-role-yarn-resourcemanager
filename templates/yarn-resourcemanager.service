@@ -3,6 +3,7 @@ Description=YARN Resourcemanager Service
 Documentation=https://github.com/gitinsky/ansible-role-yarn-resourcemanager
 
 [Service]
+Environment=HADOOP_CLASSPATH=/opt/hadoop/lib/hadoop-lzo.jar
 Type=simple
 User={{ hadoop_user }}
 Group={{ hadoop_user }}
@@ -13,4 +14,3 @@ Restart=always
 
 [Install]
 WantedBy=multi-user.target
-Alias=yarn-resourcemanager-{{ env_name }}.service
